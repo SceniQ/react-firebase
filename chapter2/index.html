@@ -23,13 +23,16 @@
             const title = "Welcome to my self-paced React course site!"
             const subtitle = "This is where the great turnover begins"
             const address = "https://threadsafe.store"
+
+            // const handleClick = (e) =>{
+            //     console.log("Button clicked!",e)
+            // }
             return (
                 <div>
                     <h2>{title.toUpperCase()}</h2>
                     <p>{subtitle}</p>
                     <p>Today's date: {new Date().toString()}</p>
-                    <p>Random number: {Math.random() * 100}</p>
-                    <a href={address}>Uhmm... Thread safe?</a>
+                    <button onClick={(e) => console.log("Button clicked!",e)}>Click me</button>
                 </div>
             )
         }
