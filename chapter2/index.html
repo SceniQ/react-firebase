@@ -19,12 +19,21 @@
     </footer>
     <script type="text/babel">
         const Banner = () =>{
+            // only one root/parent element allowed
+            const title = "Welcome to my self-paced React course site!"
+            const subtitle = "This is where the great turnover begins"
+            const address = "https://threadsafe.store"
             return (
                 <div>
-                    <p>banner</p>
+                    <h2>{title.toUpperCase()}</h2>
+                    <p>{subtitle}</p>
+                    <p>Today's date: {new Date().toString()}</p>
+                    <p>Random number: {Math.random() * 100}</p>
+                    <a href={address}>Uhmm... Thread safe?</a>
                 </div>
             )
         }
+        // render the component to the DOM
        ReactDOM.render(<Banner />, document.getElementById('banner')) 
     </script>
 </body>
