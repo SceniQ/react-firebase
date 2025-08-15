@@ -15,11 +15,12 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React & Firebase :)
         </a>
       </header>
     </div>
   );
 }
 
+// always export components so that they can be imported and used in other files
 export default App;
