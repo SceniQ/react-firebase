@@ -4,23 +4,25 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  const [name, setName] = useState('Tebza A')
   const [events, setEvents] = useState([
     {title: "Tebza A's first React lesson",id:1},
-    {title: "Tebza A's first React lesson",id:2},
-    {title: "Tebza A's first React lesson",id:3}
+    {title: "Mrembola's first React lesson",id:2},
+    {title: "Sceniq's first React lesson",id:3}
   ])
-  const handleClick = () =>{
-    setName('Mrembola')
-    console.log(name)
+  const handleClick = (id) =>{
+    setEvents((prevEvents) => { // this takes in the previous state value at the point of updating this state. That previous state value is guaranteed to be of up to date
+      return prevEvents.filter((eventItem) => {
+        return id !== eventItem.id
+      })
+    })
+    console.log(id)
   }
   return (
     <div className="App">
-      <h1>My name is {name}</h1>
-      <button onClick={handleClick}>Show name</button>
       {events.map((event, index) => (
         <div key={event.id}>
           <h2>{index} - {event.title}</h2>
+          <button onClick={() => handleClick(event.id)}>Delete item</button>
         </div>
       ))}    
     </div>
