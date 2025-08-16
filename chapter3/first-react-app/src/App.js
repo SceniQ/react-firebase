@@ -4,9 +4,9 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  let name = 'Tebza A'
+  const [name, setName] = useState('Tebza A')
   const handleClick = () =>{
-    name = 'Mrembola'
+    setName('Mrembola')
     console.log(name)
   }
   return (
