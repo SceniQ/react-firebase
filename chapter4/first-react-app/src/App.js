@@ -4,6 +4,7 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
+  const [showEvents, setShowEvents] = useState(true)
   const [events, setEvents] = useState([
     {title: "Tebza A's first React lesson",id:1},
     {title: "Mrembola's first React lesson",id:2},
@@ -19,7 +20,18 @@ function App() {
   }
   return (
     <div className="App">
-      {events.map((event, index) => (
+      {showEvents && (
+      <div>
+        <button onClick={() => setShowEvents(false)}>Hide Events</button>
+      </div>
+      )}
+      {!showEvents && (
+      <div>
+        <button onClick={() => setShowEvents(true)}>Show Events</button>
+      </div>
+      )}
+
+      {showEvents && events.map((event, index) => (
         <div key={event.id}>
           <h2>{index} - {event.title}</h2>
           <button onClick={() => handleClick(event.id)}>Delete item</button>
