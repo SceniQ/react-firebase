@@ -1,7 +1,7 @@
 
 import './App.css';
 // react hook - 'use': used for creating component states that coudl change overtime
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Title from './components/Title';
 
 function App() {
@@ -34,10 +34,10 @@ function App() {
         </div>
       )}
       {showEvents && events.map((event, index) => (
-        <div key={event.id}>
+        <React.Fragment key={event.id}>
           <h2>{index} - {event.title}</h2>
           <button onClick={() => handleClick(event.id)}>Delete item</button>
-        </div>
+        </React.Fragment>
       ))}
     </div>
   );
