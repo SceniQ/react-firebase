@@ -1,8 +1,9 @@
 
-import './App.css';
+import './App.css'
 // react hook - 'use': used for creating component states that coudl change overtime
 import React, { useState } from 'react';
 import Title from './components/Title';
+import Modal from './components/Modal';
 
 function App() {
   const [showEvents, setShowEvents] = useState(true)
@@ -39,6 +40,11 @@ function App() {
           <button onClick={() => handleClick(event.id)}>Delete item</button>
         </React.Fragment>
       ))}
+
+      <Modal>
+        <h2>10% effort is better than none!</h2>
+        <p>Let's get this!</p>
+      </Modal>
     </div>
   );
 }
