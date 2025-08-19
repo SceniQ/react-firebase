@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -17,5 +13,19 @@ code {
 }
 
 .title {
-  @apply inline-block py-[30px] px-[60px] bg-[#f4f4f4] rounded-[8px] font-normal mb-[10px]
+  display: inline-block;
+  padding: 30px 60px;
+  background: #f4f4f4;
+  border-radius: 8px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+.subtitle{
+  display: inline-block;
+  color: #555;
+  font-weight: normal;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f4f4f4;
+  margin-top: 10px;
+  margin-bottom: 60px;
 }
