@@ -1,9 +1,9 @@
-export default function Title(){
+export default function Title({title,subtitle}){
     return(
         <div>
-            <h1 className="title">Tebza A's react attempt events</h1>
+            <h1 className="title">{title}</h1>
             <br/>
-            <h2 className="subtitle"> All the latest attempts in building a React app</h2>
+            <h2 className="subtitle"> {subtitle}</h2>
         </div>
     )
 }

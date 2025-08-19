@@ -21,7 +21,8 @@ function App() {
   }
   return (
     <div className="App">
-      <Title/>
+      <Title title = "Mrembola's passed in title prop from App comp" subtitle="All the latest attempts"/>
+      {/* <Title title = "hmm..." subtitle="HMMM!"/> */}
       {showEvents && (
         <div>
           <button onClick={() => setShowEvents(false)}>Hide Events</button>
