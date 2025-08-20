@@ -6,6 +6,7 @@ import Title from './components/Title';
 import Modal from './components/Modal';
 
 function App() {
+  const [showModal, setShowModal] = useState(false)
   const [showEvents, setShowEvents] = useState(true)
   const [events, setEvents] = useState([
     { title: "Tebza A's first React lesson", id: 1 },
@@ -20,9 +21,14 @@ function App() {
     })
     console.log(id)
   }
+
+  const closeModal = () => {
+    setShowModal(false)
+  }
   return (
     <div className="App">
       <Title title = "Mrembola's passed in title prop from App comp" subtitle="All the latest attempts"/>
+      <button onClick={() => setShowModal(true)}>Show modal</button>
       {/* <Title title = "hmm..." subtitle="HMMM!"/> */}
       {showEvents && (
         <div>
@@ -41,11 +47,18 @@ function App() {
         </React.Fragment>
       ))}
 
-      <Modal>
+      {showModal && 
+        <Modal handleClose={closeModal}>
         <h2>10% effort is better than none!</h2>
         <h2>Terms and conditions</h2>
         <p>Let's get this! - Excepteur sit adipisicing veniam aute. Ex ad excepteur voluptate pariatur reprehenderit nisi dolore consequat cupidatat veniam occaecat ex. Velit esse cupidatat duis deserunt officia eu esse deserunt mollit proident nulla elit enim adipisicing. Fugiat Lorem dolor in consectetur eu irure aliquip laborum dolor.</p>
       </Modal>
+      }
+      {/* <Modal handleClose={closeModal}>
+        <h2>10% effort is better than none!</h2>
+        <h2>Terms and conditions</h2>
+        <p>Let's get this! - Excepteur sit adipisicing veniam aute. Ex ad excepteur voluptate pariatur reprehenderit nisi dolore consequat cupidatat veniam occaecat ex. Velit esse cupidatat duis deserunt officia eu esse deserunt mollit proident nulla elit enim adipisicing. Fugiat Lorem dolor in consectetur eu irure aliquip laborum dolor.</p>
+      </Modal> */}
     </div>
   );
 }
