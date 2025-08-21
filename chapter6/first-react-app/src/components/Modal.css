@@ -19,6 +19,11 @@
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
 }
+.modal .sales-btn{
+  border: 2px solid #444;
+  font-size: 18px;
+  text-transform: uppercase;
+}
 
 .eventList{
   text-align: center;
