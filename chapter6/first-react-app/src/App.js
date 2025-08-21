@@ -50,7 +50,7 @@ function App() {
 
       {showEvents && <EventList events={events} handleClick={handleClick}></EventList>}
       {showModal && 
-        <Modal handleClose={closeModal}>
+        <Modal handleClose={closeModal} isSalesModal={true}>
         <h2>10% effort is better than none!</h2>
         <h2>Terms and conditions</h2>
         <p>Let's get this! - Excepteur sit adipisicing veniam aute. Ex ad excepteur voluptate pariatur reprehenderit nisi dolore consequat cupidatat veniam occaecat ex. Velit esse cupidatat duis deserunt officia eu esse deserunt mollit proident nulla elit enim adipisicing. Fugiat Lorem dolor in consectetur eu irure aliquip laborum dolor.</p>
