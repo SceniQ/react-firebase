@@ -10,11 +10,14 @@ import NewEventForm from './components/NewEventForm';
 function App() {
   const [showModal, setShowModal] = useState(false)
   const [showEvents, setShowEvents] = useState(true)
-  const [events, setEvents] = useState([
-    { title: "Tebza A's first React lesson", id: 1 },
-    { title: "Mrembola's first React lesson", id: 2 },
-    { title: "Sceniq's first React lesson", id: 3 }
-  ])
+  const [events, setEvents] = useState([])
+
+  const addEvent = (event) =>{
+    setEvents((prevEvents) => {
+      return [...prevEvents, event]
+    })
+  }
+
   const handleClick = (id) => {
     setEvents((prevEvents) => { // this takes in the previous state value at the point of updating this state. That previous state value is guaranteed to be of up to date
       return prevEvents.filter((eventItem) => {
@@ -55,7 +58,7 @@ function App() {
         {/* <h2>10% effort is better than none!</h2>
         <h2>Terms and conditions</h2>
         <p>Let's get this! - Excepteur sit adipisicing veniam aute. Ex ad excepteur voluptate pariatur reprehenderit nisi dolore consequat cupidatat veniam occaecat ex. Velit esse cupidatat duis deserunt officia eu esse deserunt mollit proident nulla elit enim adipisicing. Fugiat Lorem dolor in consectetur eu irure aliquip laborum dolor.</p> */}
-        <NewEventForm/>
+        <NewEventForm addEvent={addEvent} setShowModal={setShowModal}/>
       </Modal>
       }
       {/* <Modal handleClose={closeModal}>
