@@ -1,4 +1,4 @@
-import './Title.css'
+import './styles/Title.css'
 export default function Title({title,subtitle}){
     return(
         <div className='title-block'>

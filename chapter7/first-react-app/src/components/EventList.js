@@ -1,6 +1,4 @@
-import './Modal.css';
-import React from 'react';
-import styles from './EventList.module.css';
+import styles from './styles/EventList.module.css';
 export default function EventList({events, handleClick}) {
     return (
         <div>
