@@ -1,17 +1,22 @@
+import { useState } from 'react';
 import './styles/NewEventForm.css';
 
 export default function NewEventForm() {
+    const [title, setTitle] = useState('')
+    const [date,setDate] = useState('')
+
   return (
     <form className='new-event-form'>
         <label>
             <span>Event title:</span>
-            <input type="text" />
+            <input type="text" onChange={(e) => setTitle(e.target.value)} />
         </label>
         <label>
             <span>Event date:</span>
-            <input type="date" />
+            <input type="date" onChange={(e) => setDate(e.target.value)} />
         </label>
         <button>Submit</button>
+        <p>Added title: {title}, Date: {date}</p>
     </form>
   )
 }
