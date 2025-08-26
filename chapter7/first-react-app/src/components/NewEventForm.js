@@ -1,23 +1,23 @@
-import { useState } from 'react';
+import { useRef } from 'react';
 import './styles/NewEventForm.css';
 
 export default function NewEventForm({addEvent, setShowModal}) {
-    const [title, setTitle] = useState('')
-    const [date,setDate] = useState('')
+    const title = useRef()
+    const date = useRef()
 
     const submitForm = (e) => {
         e.preventDefault()
-
+        
         const event = {
-            title: title,
-            date:date,
+            title: title.current.value,
+            date:date.current.value,
             id: Math.floor(Math.random() * 10000)
         }
         console.log(event)
         //setEvents
         addEvent(event)
-        setTitle('')
-        setDate('')
+        title.current.value=""
+        date.current.value=""
         setShowModal(false)
     }
 
@@ -25,11 +25,11 @@ export default function NewEventForm({addEvent, setShowModal}) {
     <form className='new-event-form' onSubmit={submitForm}>
         <label>
             <span>Event title:</span>
-            <input type="text" onChange={(e) => setTitle(e.target.value)} value={title}/>
+            <input type="text" ref={title}/>
         </label>
         <label>
             <span>Event date:</span>
-            <input type="date" onChange={(e) => setDate(e.target.value)} value={date}/>
+            <input type="date" ref={date}/>
         </label>
         <button>Submit</button>
     </form>
