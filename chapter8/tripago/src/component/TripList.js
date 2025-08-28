@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react"
+import { useState } from "react"
 import './styles/triplist.css'
 import {useFetch} from '../hooks/usefetch'
 
