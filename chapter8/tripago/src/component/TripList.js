@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import './styles/triplist.css'
 
 export default function TripList() {
@@ -6,6 +6,12 @@ export default function TripList() {
     const [url,setUrl] = useState('http://localhost:3000/trips')
     const [tripLocationUrl] = useState('http://localhost:3000/trips')
     const [tripLocations, setTriplocation] = useState([])
+
+    const fetchTrips = useCallback( async () => {
+        const respone = await fetch(url)
+        const json = await respone.json()
+        setTrips(json)
+    }, [url])
 
 
     useEffect(() => {
@@ -15,17 +21,8 @@ export default function TripList() {
     }, [tripLocationUrl]) 
 
     useEffect(() => {
-        fetch(url)
-            .then(respone => respone.json())
-            .then(json => setTrips(json))
-    }, [url])
-
-    
-
-    console.log(trips)
-   
-
-    
+        fetchTrips()
+    }, [fetchTrips])    
 
 
   return (
@@ -35,9 +32,9 @@ export default function TripList() {
         <p>filter by location:</p>
         <select onChange={(e) => "All" === e.target.value ? setUrl('http://localhost:3000/trips') : setUrl('http://localhost:3000/trips?location='.concat(e.target.value))}>
             {tripLocations.map(trip =>(
-                <option value={trip.location}>{trip.location}</option>
+                <option key={trip.id} value={trip.location}>{trip.location}</option>
             ))}
-            <option value="All"> All</option>
+            <option key="all" value="All"> All</option>
         </select>
       </div>
       {trips.map(trip => (
