@@ -2,19 +2,44 @@
     "trips":[
         {
             "title": "2 Night stay in Venice",
-            "price":"$195"
+            "price":"$195",
+            "location":"Venice"
         },
         {
-            "title": "2 Night stay in Paris",
-            "price":"$295"
+            "title": "3 Night stay in Paris",
+            "price":"$295",
+            "location":"Paris"
         },
         {
-            "title": "2 Night stay in London",
-            "price":"$345"
+            "title": "4 Night stay in London",
+            "price":"$345",
+            "location":"London"
         },
         {
             "title": "2 Night stay in New York",
-            "price":"$325"
+            "price":"$325",
+            "location":"New York"
+        },
+        {
+            "title": "5 Night stay in Joburg",
+            "price":"$95",
+            "location":"Joburg"
+        },
+        {
+            "title": "4 Night stay in Cape Town",
+            "price":"$145",
+            "location":"Cape Town"
+        },
+        {
+            "title": "1 Night stay in Saudi",
+            "price":"$325",
+            "location":"Saudi"
+        }
+        ,
+        {
+            "title": "5 Night stay in Ghana",
+            "price":"$325",
+            "location":"Ghana"
         }
     ]
 }

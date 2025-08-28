@@ -20,5 +20,22 @@
     background: greenyellow;
     border-radius: 10px;
     color: white;
+    animation:cubic-bezier(4, -0.28, 0.735, 0.045);
 }
 
+.trip-list .filter{
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.trip-list .filter select{
+    height: 30px;
+    margin: 10px;
+    border-radius: 6px;
+    border: none;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.116);
+}
+.trip-list .filter select:hover{
+    cursor: pointer;
+    box-shadow: 4px 4px 6px rgba(47, 105, 50, 0.116);
+}
