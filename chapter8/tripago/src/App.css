@@ -1,3 +1,32 @@
 body {
     font-family: 'Comfortaa', sans-serif;
 }
+
+.toggle-btn {
+    content: 'Hide trips';
+  float: right;
+  margin-right: 520px;
+  text-align: center;  
+  border: none;
+  background-color: #e6653e;
+  color: white;
+  padding: 10px 20px;
+  font-size: 11px;
+  font-weight: lighter;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-btn:after {
+  content: 'Hide trips';
+}
+
+
+.toggle-btn.pressed {
+  border: 2px solid red;
+  background-color: red;
+  color: white;
+  box-shadow: 2px 2px 10px rgba(255, 0, 0, 0.5);
+}
