@@ -20,7 +20,7 @@ export default function TripList() {
             {tripLocations && tripLocations.map(trip =>(
                 <option key={trip.id} value={trip.location}>{trip.location}</option>
             ))}
-            <option key="all" value="all"> All</option>
+            <option key="all" value="All"> All</option>
         </select>
       </div>
       {trips && trips.map(trip => (
