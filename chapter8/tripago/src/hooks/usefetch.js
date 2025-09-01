@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react"
-export const useFetch = (url) =>{
+import { useState, useEffect, useRef } from "react"
+export const useFetch = (url, _options) =>{
     const [data, setData] = useState(null)
     const[isPending, setIsPending] = useState(false)
     const[error, setError] = useState(null)
+
+    const options = useRef(_options).current
 
     useEffect(() =>{
         const controller = new AbortController()
@@ -32,7 +34,7 @@ export const useFetch = (url) =>{
         return () =>{
             controller.abort()
         }
-    }, [url])
+    }, [url,, options])
 
     return {data, isPending, error}
 }

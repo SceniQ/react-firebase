@@ -6,7 +6,7 @@ export default function TripList() {
     const [url,setUrl] = useState('http://localhost:3000/trips')
     const [tripLocationUrl] = useState('http://localhost:3000/trips')
 
-    const {data: trips, isPending} = useFetch(url)
+    const {data: trips, isPending} = useFetch(url, {type: 'GET'})
     const {data: tripLocations, error} = useFetch(tripLocationUrl)
 
   return (
@@ -20,7 +20,7 @@ export default function TripList() {
             {tripLocations && tripLocations.map(trip =>(
                 <option key={trip.id} value={trip.location}>{trip.location}</option>
             ))}
-            <option key="all" value="All"> All</option>
+            <option key="all" value="all"> All</option>
         </select>
       </div>
       {trips && trips.map(trip => (
