@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import CardGrid from './component/CardGrid';
 
 //array of cards of diff picture sources
 const cardImages = [
@@ -31,6 +32,8 @@ function App() {
     <div className="App">
       <h1>Magic Match</h1>
       <button onClick={shuffleCards}>New Game</button>
+      <CardGrid gameCards={cards}/>
+
     </div>
   );
 }
