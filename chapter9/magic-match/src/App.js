@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import CardGrid from './component/CardGrid';
 
@@ -15,7 +15,37 @@ const cardImages = [
 function App() {
   const [cards, setCards] = useState([])
   const [turns, setTurns] = useState(0)
+  const [choiceOne, setChoiceOne] = useState(null)
+  const [choiceTwo, setChoiceTwo] = useState(null)
   
+
+  //handle choice
+  const handleChoice = (card)=>{
+    choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
+  }
+
+  //find matching cards
+  useEffect(() =>{
+    if(choiceOne && choiceTwo){
+      if(choiceOne.src === choiceTwo.src){
+        //match-making logic
+        console.log("Cards match!")
+      }else{
+        console.log("Cards don't match")
+      }
+      //resetTurns
+      resetTurn()
+    }
+    
+  }, [choiceOne,choiceTwo])
+
+  //reset turns
+  const resetTurn = () =>{
+    setChoiceOne(null)
+    setChoiceTwo(null)
+    setTurns(prevTurns => prevTurns + 1)
+  }
+
   //shuffle cards
   const shuffleCards = () => {
     const shuffledCards = [...cardImages, ...cardImages]
@@ -26,14 +56,11 @@ function App() {
     setTurns(0)
   }
 
-  console.log(cards, turns)
-
   return (
     <div className="App">
       <h1>Magic Match</h1>
       <button onClick={shuffleCards}>New Game</button>
-      <CardGrid gameCards={cards}/>
-
+      <CardGrid gameCards={cards} handleChoice={handleChoice}/>
     </div>
   );
 }
