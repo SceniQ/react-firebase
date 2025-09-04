@@ -43,7 +43,7 @@ function App() {
         console.log("Cards don't match")
       }
       //resetTurns
-      resetTurn()
+      setTimeout(() =>resetTurn(),1000)
     }
     
   }, [choiceOne,choiceTwo])
@@ -71,7 +71,7 @@ function App() {
     <div className="App">
       <h1>Magic Match</h1>
       <button onClick={shuffleCards}>New Game</button>
-      <CardGrid gameCards={cards} handleChoice={handleChoice}/>
+      <CardGrid gameCards={cards} handleChoice={handleChoice} choiceOne={choiceOne} choiceTwo={choiceTwo}/>
     </div>
   );
 }
