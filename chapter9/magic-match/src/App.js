@@ -4,12 +4,12 @@ import CardGrid from './component/CardGrid';
 
 //array of cards of diff picture sources
 const cardImages = [
-  {"src": "img/helmet-1.png"},
-  {"src": "img/potion-1.png"},
-  {"src": "img/ring-1.png"},
-  {"src": "img/scroll-1.png"},
-  {"src": "img/shield-1.png"},
-  {"src": "img/sword-1.png"},
+  {"src": "img/helmet-1.png", matched:false},
+  {"src": "img/potion-1.png", matched:false},
+  {"src": "img/ring-1.png", matched:false},
+  {"src": "img/scroll-1.png", matched:false},
+  {"src": "img/shield-1.png", matched:false},
+  {"src": "img/sword-1.png", matched:false},
 ]
 
 function App() {
@@ -28,8 +28,17 @@ function App() {
   useEffect(() =>{
     if(choiceOne && choiceTwo){
       if(choiceOne.src === choiceTwo.src){
+        const choiceSource = choiceOne.src
         //match-making logic
-        console.log("Cards match!")
+        setCards(prevCards => {
+          return prevCards.map(card => {
+            if(card.src === choiceSource){
+              return {...card, matched: true}
+            }else{
+              return card
+            }
+          })
+        })
       }else{
         console.log("Cards don't match")
       }
@@ -38,6 +47,8 @@ function App() {
     }
     
   }, [choiceOne,choiceTwo])
+
+  console.log(cards)
 
   //reset turns
   const resetTurn = () =>{
