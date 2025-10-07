@@ -17,6 +17,7 @@ function App() {
   const [turns, setTurns] = useState(0)
   const [choiceOne, setChoiceOne] = useState(null)
   const [choiceTwo, setChoiceTwo] = useState(null)
+  const [disabled, setDisabled] = useState(false)
   
 
   //handle choice
@@ -71,7 +72,7 @@ function App() {
     <div className="App">
       <h1>Magic Match</h1>
       <button onClick={shuffleCards}>New Game</button>
-      <CardGrid gameCards={cards} handleChoice={handleChoice} choiceOne={choiceOne} choiceTwo={choiceTwo}/>
+      <CardGrid gameCards={cards} handleChoice={handleChoice} choiceOne={choiceOne} choiceTwo={choiceTwo} disabled={disabled}/>
     </div>
   );
 }
