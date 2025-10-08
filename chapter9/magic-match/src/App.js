@@ -27,13 +27,14 @@ function App() {
 
   //find matching cards
   useEffect(() =>{
+    
     if(choiceOne && choiceTwo){
+      setDisabled(true)
       if(choiceOne.src === choiceTwo.src){
-        const choiceSource = choiceOne.src
         //match-making logic
         setCards(prevCards => {
           return prevCards.map(card => {
-            if(card.src === choiceSource){
+            if(card.src === choiceOne.src){
               return {...card, matched: true}
             }else{
               return card
@@ -56,7 +57,13 @@ function App() {
     setChoiceOne(null)
     setChoiceTwo(null)
     setTurns(prevTurns => prevTurns + 1)
+    setDisabled(false)
   }
+
+  //start the game automatically
+  useEffect(() =>{
+    shuffleCards();
+  },[])
 
   //shuffle cards
   const shuffleCards = () => {
@@ -64,6 +71,8 @@ function App() {
     .sort(() => Math.random() - 0.5)
     .map((card) => ({...card, id: Math.random()}))
 
+    setChoiceOne(null)
+    setChoiceTwo(null)
     setCards(shuffledCards)
     setTurns(0)
   }
@@ -73,6 +82,7 @@ function App() {
       <h1>Magic Match</h1>
       <button onClick={shuffleCards}>New Game</button>
       <CardGrid gameCards={cards} handleChoice={handleChoice} choiceOne={choiceOne} choiceTwo={choiceTwo} disabled={disabled}/>
+      <p>Turns: {turns}</p>
     </div>
   );
 }
