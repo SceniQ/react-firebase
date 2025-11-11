@@ -1,10 +1,23 @@
-export default function home() {
+import {useFetch} from '../hooks/useFetch'
+import {NavLink} from 'react-router-dom'
+import './css/Home.css'
+
+export default function Home() {
+
+  const {data: articles, isPending, error} = useFetch('http://localhost:3000/articles')
+
   return (
-    <div>
-      <h2>Homepage</h2>
-      <p>Enim nisi nostrud laboris magna et quis aute dolor amet id in amet. 
-        Cupidatat aute reprehenderit non sunt eu in dolore aute magna eiusmod magna nisi mollit. 
-        Commodo ex quis qui sit proident ad voluptate reprehenderit reprehenderit commodo.</p>
+    <div className='home'>
+      <h2>Articles</h2>
+      {isPending && <div>Loading...</div>}
+      {error && <div>{error}</div>}
+      {articles && articles.map((article) => (
+        <div key={article.id} className='card'>
+          <h3>{article.title}</h3>          
+          <p>{article.author}</p>
+          <NavLink to={`/articles/${article.id}`}>Read more...</NavLink>
+        </div>
+      ))}
     </div>
   )
 }
