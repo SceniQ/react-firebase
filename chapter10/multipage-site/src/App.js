@@ -1,5 +1,5 @@
 import './App.css'
-import {BrowserRouter, Routes, Route, NavLink} from 'react-router-dom'
+import {BrowserRouter, Routes, Route, NavLink, Navigate } from 'react-router-dom'
 import Home from './pages/Home'
 import Contact from './pages/Contact'
 import About from './pages/About'
@@ -16,10 +16,11 @@ function App() {
         <NavLink to="/about">About</NavLink>
       </nav>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route exact path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path='/articles/:id' element={<Article/>}/>
+        <Route path='*' element={<Navigate to='/'/>}/>
       </Routes>
      
       </BrowserRouter>
