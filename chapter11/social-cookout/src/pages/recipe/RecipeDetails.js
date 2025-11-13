@@ -1,9 +1,9 @@
-import React from 'react'
+import './RecipeDetails.css'
 
 export default function RecipeDetails() {
   return (
     <div>
-      
+      RecipeDetails
     </div>
   )
 }
