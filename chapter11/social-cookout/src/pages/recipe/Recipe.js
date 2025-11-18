@@ -25,15 +25,15 @@ export default function Recipe() {
       {isPending && <p>Loading...</p>}
       {error && <p>{error}</p>}
       {recipe && (
-        <div className='recipe-steps'>
-            <h3>{recipe.title}</h3>
+        <div key={recipe.id} className='recipe'>
+            <h3 className='page-title'>{recipe.title}</h3>
             <p>{recipe.cookingTime} to make</p>
-            {recipe.ingredients.map( ingredient =>
-                <ul>
-                    <input type="checkbox" name={ingredient} value="list"/>
-                    <label for={ingredient}> {ingredient}</label><br></br>
-                </ul>
-            )}
+            <ul>
+              {recipe.ingredients.map(ingredient =>
+                <li key={ingredient}>{ingredient}</li>
+              )}
+            </ul>
+          
             <p>{recipe.method}</p>
         </div>
       )}
