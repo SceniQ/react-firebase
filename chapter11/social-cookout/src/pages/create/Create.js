@@ -1,17 +1,22 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useNavigate } from "react-router-dom"
+import {useFetch} from '../../hooks/useFetch'
 import './Create.css'
 
 export default function Create() {
-  const [time, setTime] = useState('')
+  const [cookingTime, setTime] = useState('')
   const [title, setTitle] = useState('')
   const [method, setMethod] = useState('')
   const [newIngredient, setNewIngredient] = useState('')
   const [ingredients, setIngredients] = useState([])
   const ingredientInput = useRef(null)
+  const navigateTo = useNavigate()
+
+  const {postData, data, error } = useFetch('http://localhost:3000/recipes', 'POST')
 
   const handleSubmit = (e) =>{
     e.preventDefault()
-    console.log(ingredients)
+    postData({title, ingredients, method, cookingTime: cookingTime + ' minutes'})
   }
   const handleAdd = (e) =>{
     e.preventDefault()
@@ -22,6 +27,14 @@ export default function Create() {
     setNewIngredient('')
     ingredientInput.current.focus()
   }
+
+  useEffect(() => {
+    if(data){
+      setTimeout(() => {
+          navigateTo('/')
+        }, 500)
+    }
+  }, [data])
 
   return (
     <div className='create'>
@@ -62,7 +75,7 @@ export default function Create() {
           <span>Time to make (in minutes):</span>
           <input type="number" 
           onChange={(e) => setTime(e.target.value)}
-          value={time}
+          value={cookingTime}
           required
           />
         </label>

@@ -36,6 +36,58 @@
       ],
       "method": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse minima ex rem quis similique eum ratione quaerat, voluptas molestias ut repudiandae delectus voluptates. Eius esse at tenetur ab accusamus excepturi?",
       "cookingTime": "35 minutes"
+    },
+    {
+      "id": "6b95",
+      "title": "Test dish",
+      "ingredients": [
+        "react",
+        "js"
+      ],
+      "method": "Just type, and we're good",
+      "cookingTime": "2 minutes"
+    },
+    {
+      "id": "a7b8",
+      "title": "iuee",
+      "ingredients": [
+        "eRG",
+        "Rgrg",
+        "ERG"
+      ],
+      "method": "JSHJ",
+      "cookingTime": "2 minutes"
+    },
+    {
+      "id": "99d9",
+      "title": "AFDF",
+      "ingredients": [
+        "ASFA",
+        "AFSS",
+        "AFSF"
+      ],
+      "method": "ASFAS",
+      "cookingTime": "1 minutes"
+    },
+    {
+      "id": "2e45",
+      "title": "sdfds",
+      "ingredients": [
+        "sdf",
+        "sdfsd"
+      ],
+      "method": "sdf",
+      "cookingTime": "2 minutes"
+    },
+    {
+      "id": "22c8",
+      "title": "xsdfd",
+      "ingredients": [
+        "sg",
+        "sdg"
+      ],
+      "method": "sdgdsg",
+      "cookingTime": "2 minutes"
     }
   ]
 }
