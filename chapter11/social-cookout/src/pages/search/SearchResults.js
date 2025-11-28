@@ -17,7 +17,7 @@ export default function SearchResults() {
       <h2 className="page-title">Recipes including "{query}"</h2>
       {error && <p className="error">{error}</p>}
       {isPending && <p className="loading">Loading...</p>}
-      {data && <RecipeDetails recipes={data.filter(d => d.title.toLowerCase().includes(query.toLowerCase()))} />}
+      {data && <RecipeDetails recipes={data.filter(d => d.title.toLowerCase().includes(query.toLowerCase()))} query = {query}/>}
     </div>
   )
 }

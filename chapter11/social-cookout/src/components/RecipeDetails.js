@@ -1,7 +1,12 @@
 import './RecipeDetails.css'
 import { Link } from 'react-router-dom'
 
-export default function RecipeDetails({recipes}) {
+export default function RecipeDetails({recipes, query}) {
+
+  if(recipes.length === 0){
+    return <div className='error'>No recipes found for "{query}"</div>
+  }
+
   return (
     <div className='recipe-list'>
       {recipes.map(recipe =>(
